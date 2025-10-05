@@ -1,13 +1,15 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom'; // Add Routes and Route imports
+import { Routes, Route, Navigate } from 'react-router-dom';
 import Login from './Pages/Login';
-import './App.css';
+import Signin from './Pages/Signin';
 
 function App() {
   return (
     <div className="app-container">
       <Routes>
-        <Route path="/Login" element={<Login />} />
+        <Route path="/" element={<Login />} />
+        <Route path="/register" element={<Signin />} />
+        <Route path="*" element={<Navigate to="/" replace />} /> {/* Redirect unknown paths to login */}
       </Routes>
     </div>
   );
